@@ -1,5 +1,5 @@
 all:
-	g++ -o ass1 ass1.cpp -lm -fopenmp
-	./ass1
+	g++ -o trap trap.cpp -lm -fopenmp
+	./trap
 clean:
-	rm -r ass1
+	rm -r trap
