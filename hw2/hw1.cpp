@@ -1,5 +1,7 @@
-#define NUMNODES = 105
-#define NT = 1
+#include <iostream>
+
+#define NUMNODES 10000
+#define NT	6;
 
 #define XMIN	 0.
 #define XMAX	 3.
@@ -46,8 +48,9 @@
 #define BOTZ23  -8.
 #define BOTZ33  -3.
 
+using namespace std;
 
-float Height( int iu, int iv )	// iu,iv = 0 .. NUMNODES-1
+float height( int iu, int iv )	// iu,iv = 0 .. NUMNODES-1
 {
 	float u = (float)iu / (float)(NUMNODES-1);
 	float v = (float)iv / (float)(NUMNODES-1);
@@ -89,17 +92,42 @@ int main( int argc, char *argv[ ] )
 {
 
 	// the area of a single full-sized tile:
-
 	float fullTileArea = (  ( (XMAX-XMIN)/(float)(NUMNODES-1) )  *  ( ( YMAX - YMIN )/(float)(NUMNODES-1) )  );
+
+
+	float center = fullTileArea;
+	float edge = 1/2*fullTileArea;
+	float corner = 1/4*fullTileArea;
+
 
 	// sum up the weighted heights into the variable "volume"
 	// using an OpenMP for loop and a reduction:
-
-	#pragma omp parallel for reduction(+:volume),private()
-	for (int i=0;i<NUMNODES*NUMNDOES;++i)
+	float volume = 0;
+	float h = 0;
+	int iu = 0;
+	int iv = 0;
+	#pragma omp parallel for reduction(+:volume),private(h,iu,iv)
+	for (int i=0;i<NUMNODES*NUMNODES;++i)
 	{
 		int iu = i%NUMNODES;
 		int iv = i/NUMNODES;
-		volume = height(iu,iv);	
+		int h = height(iu,iv);	
+
+		if(iu > 0 && iu < NUMNODES-1 && iv > 0 && iv < NUMNODES-1)
+		{
+			volume += h*center;	//area*height = volume
+
+		}
+		else{
+			if((iv == NUMNODES-1 || iv ==0) && (iu ==NUMNODES-1 || iu ==0 ))
+			{
+				volume += corner*h;
+			}
+			else{
+				volume += edge*h;
+			}
+		}
 	}
+	cout << volume << endl;
+	return 0;
 }

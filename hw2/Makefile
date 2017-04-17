@@ -1,5 +1,5 @@
 all:
-	g++ -o trap trap.cpp -lm -fopenmp
-	./trap
+	g++ -o hw1 hw1.cpp -lm -fopenmp
+	./hw1
 clean:
-	rm -r trap
+	rm -r hw1
