@@ -1,7 +1,7 @@
 #include <iostream>
 
-#define NUMNODES 10000
-#define NT	6;
+#define NUMNODES 5000
+#define NT	4;
 
 #define XMIN	 0.
 #define XMAX	 3.
@@ -106,9 +106,15 @@ int main( int argc, char *argv[ ] )
 	float h = 0;
 	int iu = 0;
 	int iv = 0;
+	int c_corner = 0;
+	int c_center = 0;
+	int c_edge = 0;
+		
 	#pragma omp parallel for reduction(+:volume),private(h,iu,iv)
 	for (int i=0;i<NUMNODES*NUMNODES;++i)
 	{
+
+
 		int iu = i%NUMNODES;
 		int iv = i/NUMNODES;
 		int h = height(iu,iv);	
@@ -116,18 +122,23 @@ int main( int argc, char *argv[ ] )
 		if(iu > 0 && iu < NUMNODES-1 && iv > 0 && iv < NUMNODES-1)
 		{
 			volume += h*center;	//area*height = volume
-
+			++c_center;
 		}
 		else{
 			if((iv == NUMNODES-1 || iv ==0) && (iu ==NUMNODES-1 || iu ==0 ))
 			{
 				volume += corner*h;
+				++c_corner;
 			}
 			else{
 				volume += edge*h;
+				++c_edge;
 			}
 		}
 	}
 	cout << volume << endl;
+	cout << "the number of centers is "<<c_center << endl;
+	cout << "the num of corners is " << c_corner << endl;
+	cout << "the num of edges is " << c_edge << endl;
 	return 0;
 }
