@@ -8,7 +8,7 @@ do
 	for s in 1 10 50 100 500 1000 5000 10000 
 	do
 		echo NUMNODES = $s
-		g++ -DNUMS=$s -DNUMT=$t hw1.cpp -o hw1 -O3 -lm -fopenmp 
+		g++ -DNUMNODES=$s -DNT=$t hw1.cpp -o hw1 -lm -fopenmp 
 		./hw1
 	done 
 done

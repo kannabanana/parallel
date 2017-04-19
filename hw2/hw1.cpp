@@ -1,7 +1,7 @@
 #include <iostream>
 
-#define NUMNODES 4
-#define NT	1
+//#define NUMNODES 5000
+//#define NT	1
 
 #define XMIN	 0.
 #define XMAX	 3.

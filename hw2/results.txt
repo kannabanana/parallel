@@ -1,0 +1,206 @@
+NUMT = 1
+NUMNODES = 1
+-nan
+the number of centers is 0
+the num of corners is 1
+the num of edges is 0
+NUMNODES = 10
+16
+the number of centers is 63
+the num of corners is 4
+the num of edges is 32
+NUMNODES = 50
+20.1479
+the number of centers is 1710
+the num of corners is 4
+the num of edges is 174
+NUMNODES = 100
+20.6446
+the number of centers is 2376
+the num of corners is 4
+the num of edges is 379
+NUMNODES = 500
+21.0488
+the number of centers is 33741
+the num of corners is 4
+the num of edges is 1949
+NUMNODES = 1000
+21.1008
+the number of centers is 539215
+the num of corners is 4
+the num of edges is 3976
+NUMNODES = 5000
+21.0306
+the number of centers is 5741141
+the num of corners is 4
+the num of edges is 19951
+NUMNODES = 10000
+21.4436
+the number of centers is 38782620
+the num of corners is 4
+the num of edges is 39955
+NUMT = 2
+NUMNODES = 1
+-nan
+the number of centers is 0
+the num of corners is 1
+the num of edges is 0
+NUMNODES = 10
+16
+the number of centers is 57
+the num of corners is 4
+the num of edges is 31
+NUMNODES = 50
+20.1479
+the number of centers is 1740
+the num of corners is 4
+the num of edges is 176
+NUMNODES = 100
+20.6446
+the number of centers is 4806
+the num of corners is 4
+the num of edges is 378
+NUMNODES = 500
+21.0488
+the number of centers is 76244
+the num of corners is 4
+the num of edges is 1982
+NUMNODES = 1000
+21.1008
+the number of centers is 450781
+the num of corners is 4
+the num of edges is 3969
+NUMNODES = 5000
+21.0306
+the number of centers is 7457838
+the num of corners is 4
+the num of edges is 19925
+NUMNODES = 10000
+21.4436
+the number of centers is 50454271
+the num of corners is 4
+the num of edges is 39983
+NUMT = 4
+NUMNODES = 1
+-nan
+the number of centers is 0
+the num of corners is 1
+the num of edges is 0
+NUMNODES = 10
+16
+the number of centers is 55
+the num of corners is 4
+the num of edges is 32
+NUMNODES = 50
+20.1479
+the number of centers is 1649
+the num of corners is 4
+the num of edges is 188
+NUMNODES = 100
+20.6446
+the number of centers is 6619
+the num of corners is 4
+the num of edges is 388
+NUMNODES = 500
+21.0488
+the number of centers is 85358
+the num of corners is 4
+the num of edges is 1965
+NUMNODES = 1000
+21.1008
+the number of centers is 491980
+the num of corners is 4
+the num of edges is 3975
+NUMNODES = 5000
+21.0306
+the number of centers is 8456255
+the num of corners is 4
+the num of edges is 19913
+NUMNODES = 10000
+21.4436
+the number of centers is 39305545
+the num of corners is 4
+the num of edges is 39991
+NUMT = 6
+NUMNODES = 1
+-nan
+the number of centers is 0
+the num of corners is 1
+the num of edges is 0
+NUMNODES = 10
+16
+the number of centers is 35
+the num of corners is 4
+the num of edges is 21
+NUMNODES = 50
+20.1479
+the number of centers is 1033
+the num of corners is 4
+the num of edges is 149
+NUMNODES = 100
+20.6446
+the number of centers is 6684
+the num of corners is 4
+the num of edges is 390
+NUMNODES = 500
+21.0488
+the number of centers is 85285
+the num of corners is 4
+the num of edges is 1974
+NUMNODES = 1000
+21.1008
+the number of centers is 307064
+the num of corners is 4
+the num of edges is 3965
+NUMNODES = 5000
+21.0306
+the number of centers is 11305976
+the num of corners is 4
+the num of edges is 19975
+NUMNODES = 10000
+21.4436
+the number of centers is 39461229
+the num of corners is 4
+the num of edges is 39967
+NUMT = 8
+NUMNODES = 1
+-nan
+the number of centers is 0
+the num of corners is 1
+the num of edges is 0
+NUMNODES = 10
+16
+the number of centers is 63
+the num of corners is 4
+the num of edges is 31
+NUMNODES = 50
+20.1479
+the number of centers is 1543
+the num of corners is 4
+the num of edges is 181
+NUMNODES = 100
+20.6446
+the number of centers is 4604
+the num of corners is 4
+the num of edges is 371
+NUMNODES = 500
+21.0488
+the number of centers is 111982
+the num of corners is 4
+the num of edges is 1965
+NUMNODES = 1000
+21.1008
+the number of centers is 623712
+the num of corners is 4
+the num of edges is 3986
+NUMNODES = 5000
+21.0306
+the number of centers is 14167457
+the num of corners is 4
+the num of edges is 19984
+NUMNODES = 10000
+21.4436
+the number of centers is 43218248
+the num of corners is 4
+the num of edges is 39978
+
