@@ -1,5 +1,7 @@
+#include <math.h>
 #include <stdlib.h>
-#include <cstidio>
+#include <cstdio>
+#include <iostream>
 #include <omp.h>
 
 using namespace std;
@@ -7,6 +9,7 @@ using namespace std;
 
 #define ARRAYSIZE	32*1024
 #define NUMT		2
+#define CHUNKSIZE	1
 
 float Ranf( float low, float high )
 {
@@ -19,12 +22,16 @@ float Ranf( float low, float high )
 
 int main()
 {
-	int i;
-	float Array[i] = ranf(-1.f,1.f);
-	int len = length(Array);
+	int i = 0;
+	float Array[ARRAYSIZE];
+	for (int i =0;i<ARRAYSIZE-1;++i)
+	{
+		Array[i] = Ranf(-1.f,1.f);
+
+	}
 
 	#pragma omp parallel for default(none),schedule(static,1)
-	for(int k=0;k<len-1;++k)
+	for(int k=0;k<ARRAYSIZE-1;++k)
 	{
 		float prod = 1;
 		for (int j=0;j<i;++j)

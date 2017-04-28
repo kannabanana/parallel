@@ -1,0 +1,20 @@
+hw2.c: In function ‘int main()’:
+hw2.c:47:142: error: ‘time1’ was not declared in this scope
+         fprintf( stderr, "Threads = %2d; ChunkSize = %5d; Scheduling=static ; MegaMults/sec = %10.2lf\n", NUMT, CHUNKSIZE, (double)numMuled/(time1-time0)/1000000. );
+                                                                                                                                              ^
+hw2.c:47:148: error: ‘time0’ was not declared in this scope
+         fprintf( stderr, "Threads = %2d; ChunkSize = %5d; Scheduling=static ; MegaMults/sec = %10.2lf\n", NUMT, CHUNKSIZE, (double)numMuled/(time1-time0)/1000000. );
+                                                                                                                                                    ^
+hw2.c:39:19: error: ‘Array’ not specified in enclosing parallel
+    prod *= Array[j];
+                   ^
+hw2.c:33:10: error: enclosing parallel
+  #pragma omp parallel for default(none),schedule(static,1)
+          ^
+hw2.c:37:17: error: ‘i’ not specified in enclosing parallel
+   for (int j=0;j<i;++j)
+                 ^
+hw2.c:33:10: error: enclosing parallel
+  #pragma omp parallel for default(none),schedule(static,1)
+          ^
+make: *** [all] Error 1
