@@ -8,8 +8,10 @@ using namespace std;
 
 
 #define ARRAYSIZE	32*1024
-#define NUMT		2
-#define CHUNKSIZE	1
+//#define NUMT		2
+//#define CHUNKSIZE	1
+//#define SCHEDULE	static
+float ARRAY[ARRAYSIZE];
 
 float Ranf( float low, float high )
 {
@@ -23,25 +25,27 @@ float Ranf( float low, float high )
 int main()
 {
 	int i = 0;
-	float Array[ARRAYSIZE];
-	for (int i =0;i<ARRAYSIZE-1;++i)
+	for (i=0;i<ARRAYSIZE-1;++i)
 	{
-		Array[i] = Ranf(-1.f,1.f);
+		ARRAY[i] = Ranf(-1.f,1.f);
 
 	}
 
-	#pragma omp parallel for default(none),schedule(static,1)
+	int time0 = omp_get_wtime();
+	float prod = 1;
+
+	#pragma omp parallel for private(prod),schedule(SCHEDULE,CHUNKSIZE)
 	for(int k=0;k<ARRAYSIZE-1;++k)
 	{
-		float prod = 1;
-		for (int j=0;j<i;++j)
+		prod = 1;
+		for (int j=0;j<k;++j)
 		{
-			prod *= Array[j];
+			prod *= ARRAY[j];
 		}
 
 	}
 
-
+	int time1 = omp_get_wtime();
 
 long int numMuled = (long int)ARRAYSIZE * (long int)(ARRAYSIZE+1) / 2;  // count of how many multiplications were done:
         fprintf( stderr, "Threads = %2d; ChunkSize = %5d; Scheduling=static ; MegaMults/sec = %10.2lf\n", NUMT, CHUNKSIZE, (double)numMuled/(time1-time0)/1000000. );
