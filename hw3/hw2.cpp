@@ -4,13 +4,7 @@
 #include <iostream>
 #include <omp.h>
 
-using namespace std;
-
-
 #define ARRAYSIZE	32*1024
-//#define NUMT		2
-//#define CHUNKSIZE	1
-//#define SCHEDULE	static
 float ARRAY[ARRAYSIZE];
 
 float Ranf( float low, float high )
@@ -21,19 +15,21 @@ float Ranf( float low, float high )
 }
 
 
-
 int main()
 {
-	int i = 0;
+
+	omp_set_num_threads(NUMT);
+
+	int i =0;
 	for (i=0;i<ARRAYSIZE-1;++i)
 	{
 		ARRAY[i] = Ranf(-1.f,1.f);
-
 	}
 
-	int time0 = omp_get_wtime();
-	float prod = 1;
 
+	float prod;
+	double time0 = omp_get_wtime();
+	
 	#pragma omp parallel for private(prod),schedule(SCHEDULE,CHUNKSIZE)
 	for(int k=0;k<ARRAYSIZE-1;++k)
 	{
@@ -45,7 +41,7 @@ int main()
 
 	}
 
-	int time1 = omp_get_wtime();
+	double time1 = omp_get_wtime();
 
 long int numMuled = (long int)ARRAYSIZE * (long int)(ARRAYSIZE+1) / 2;  // count of how many multiplications were done:
         fprintf( stderr, "Threads = %2d; ChunkSize = %5d; Scheduling=static ; MegaMults/sec = %10.2lf\n", NUMT, CHUNKSIZE, (double)numMuled/(time1-time0)/1000000. );
