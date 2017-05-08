@@ -1,0 +1,45 @@
+#include <stdlib.h>
+#include <math.h>
+#include <stdlib.h>
+#include <cstdio>
+#include <iostream>
+#include <omp.h>
+
+struct s
+{
+	float value;
+	int pad[NUMPAD];
+} Array[4];
+
+
+
+int main()
+{	
+
+	omp_set_num_threads( NUMT );
+
+	const int SomeBigNumber = 100000000;	// keep < 2B
+
+	double time0 = omp_get_wtime();
+	
+
+	#pragma omp parallel for
+	for( int i = 0; i < 4; i++ )
+	{
+		unsigned int seed = 0;		// automatically private
+		for( unsigned int j = 0; j < SomeBigNumber; j++ )
+		{
+			Array[ i ].value = Array[ i ].value + (float)rand_r( &seed );
+		}
+	}
+
+	double time1 = omp_get_wtime();
+	long int numMuled = (long int)4 * (long int)(4) / 2;  // count of how many multiplications were done:
+        fprintf( stderr, "Threads = %2d; MegaMults/sec = %10.2lf\n", NUMT, (double)numMuled/(time1-time0)/1000000. );
+
+
+
+
+
+
+}
