@@ -1,5 +1,5 @@
 all:
-	g++ -o hw1 hw1.cpp -lm -fopenmp
-	./hw1
+	python script.py
+
 clean:
-	rm -r hw1
+	rm -rf prog

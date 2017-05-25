@@ -34,10 +34,12 @@ int main()
 	}
 
 	double time1 = omp_get_wtime();
-	long int numMuled = (long int)4 * (long int)(4) / 2;  // count of how many multiplications were done:
-        fprintf( stderr, "Threads = %2d; MegaMults/sec = %10.2lf\n", NUMT, (double)numMuled/(time1-time0)/1000000. );
+//	long int numMuled = (long int)4 * (long int)(4) / 2;  // count of how many multiplications were done:
 
+//	double total = double(4*4)/(time1-time0)/1000000.;
+//        fprintf( stderr, "Threads = %2d; MegaMults/sec = %10.2lf\n", NUMT, total );
 
+	fprintf(stderr, "MegaAdd/sec = %10.2lf\n\n",(double)SomeBigNumber/(time1-time0)/1000000.);
 
 
 
